@@ -1,0 +1,5 @@
+# Pasos para generar apk
+
+- npx expo prebuild (Solo la primera vez)
+- npx expo prebuild --clean (Solo si cambios iconos e imagenes)
+- .\gradlew assembleRelease (Para generar apk)

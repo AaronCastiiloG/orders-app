@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "211162647385",
+    "project_id": "orders-app-28835",
+    "storage_bucket": "orders-app-28835.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211162647385:android:5a9f9dcbed9259a1305a48",
+        "android_client_info": {
+          "package_name": "com.mayoreosureste.ordersadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsickCRWR5QrxfbMqH_YEHRXcPLAsQXYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
