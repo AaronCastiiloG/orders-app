@@ -3,3 +3,25 @@
 - npx expo prebuild (Solo la primera vez)
 - npx expo prebuild --clean (Solo si cambios iconos e imagenes)
 - .\gradlew assembleRelease (Para generar apk)
+
+# Posible mejora: recargar al volver a la pantalla
+
+Pedidos e historial recargan con `useFocusEffect` envuelto en `useCallback`. Crear pedido, detalle, compras pendientes y etiquetas usan `useEffect` con `[]`, porque esa pantalla se abre, lee y se cierra.
+
+`useCallback` hace falta solo con `useFocusEffect`. Ese hook guarda la función y, si en cada render es otra, se vuelve a suscribir y la consulta corre de nuevo. `useEffect` no compara la función: compara el arreglo de dependencias.
+
+Otra forma, sin `useCallback`, es mirar si la pantalla está al frente:
+
+```tsx
+const isFocused = useIsFocused();
+
+useEffect(() => {
+  if (!isFocused) {
+    return;
+  }
+
+  void getAllOrders();
+}, [isFocused]);
+```
+
+`isFocused` pasa a `true` al abrir y otra vez al regresar. El efecto depende de ese booleano. Para solo bajar datos, esta forma y `useFocusEffect` hacen lo mismo. Conviene usar una sola en las listas.

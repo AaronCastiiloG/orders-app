@@ -1,5 +1,5 @@
 import { useRouter, useFocusEffect } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 import { APP_CONSTANTS } from '../../constants/app.constants';
 import { Order } from '../../interfaces/order.interface';
@@ -31,7 +31,6 @@ export function UseOrderView() {
     criteria.value = OrderStatus.Created;
     const ordersFirebase = await orderService.getOrdersByCriteria(criteria);
     
-
     if (ordersFirebase) {
       setOrders(ordersFirebase);
       calculateTotal(ordersFirebase);
